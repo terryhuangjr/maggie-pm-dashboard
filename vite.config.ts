@@ -11,7 +11,7 @@ export default defineConfig({
       manifest: {
         name: 'MaggiePM',
         short_name: 'MaggiePM',
-        description: 'MH Group Property Management',
+        description: 'TH Group Property Management',
         theme_color: '#b8975a',
         background_color: '#ffffff',
         display: 'standalone',

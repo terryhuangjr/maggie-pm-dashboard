@@ -1,73 +1,35 @@
-# React + TypeScript + Vite
+# MaggiePM Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Vercel Production URL:** https://maggie-pm-dashboard.vercel.app (or production equivalent)
+**Host:** Vercel (Frontend)
+**Tech Stack:** React + TypeScript + Vite, Supabase
+**Agent:** Hermes agent (`maggie-pm-agent`) running on VPS (DigitalOcean, Ubuntu 22.04 at 167.172.135.39)
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Overview
 
-## React Compiler
+MaggiePM is a property management dashboard that integrates with Supabase and connects to the `maggie-pm-agent` running on a separate VPS. It features financial reports, property details, tenant management, and calendar views.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Key Components
 
-## Expanding the ESLint configuration
+1. **Frontend:** Vite + React + TypeScript, deployed on Vercel.
+2. **Backend/Database:** Supabase handles data storage (properties, tenants, leases, tasks).
+3. **Hermes Agent:** The `maggie-pm-agent` runs via PM2 on the DigitalOcean VPS to manage tasks, Dropbox files, and syncs.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Recent Updates
+- Integrated Supabase DB.
+- Replaced generic Vite template documentation.
+- Accounts switcher and YTD/range reports added.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Development
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+```bash
+# Install dependencies
+npm install
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Run locally
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+For more info, refer to the global `SYSTEMS.md` file.

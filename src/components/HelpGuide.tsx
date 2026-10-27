@@ -7,7 +7,7 @@ const sections = [
     icon: BookOpen,
     title: 'Getting Started',
     content: [
-      'Log in with the credentials Maggie provides. You\'ll land on the **Overview** dashboard showing key stats.',
+      'Log in with your credentials. You\'ll land on the **Overview** dashboard showing key stats.',
       'Explore each section using the sidebar on the left. Everything is organized by function.',
       'If you\'re unsure where to start — the **Tasks** tab shows what\'s assigned to you.',
     ]
@@ -189,7 +189,7 @@ const sections = [
         title: 'Recording Expenses (Maintenance, Repairs, etc.)',
         steps: [
           'Expenses are tracked per property in the **Financial Reports** section (Admin only).',
-          'If you need to log an expense, reach out to Maggie or an admin.',
+          'If you need to log an expense, reach out to an admin.',
         ]
       },
     ]
@@ -229,7 +229,7 @@ const sections = [
       '**Don\'t delete, edit** — if a contact\'s phone number changes, edit it. If a lease amount was wrong, edit it. Only delete duplicates.',
       '**When in doubt, try clicking** — most items are clickable. Cards expand. Buttons reveal forms. Explore!',
       '**Prefer the dashboard over Agent chat** — the dashboard shows everything at a glance. Use the Agent for quick lookups or to add a task on the go.',
-      '**Check Tasks first** — if something needs to be done, it\'s probably already in the task list. Check there before asking Maggie.',
+      '**Check Tasks first** — if something needs to be done, it\'s probably already in the task list. Check there before asking a manager.',
     ]
   },
 ]
@@ -290,7 +290,7 @@ export function HelpGuide() {
   return (
     <div className="help-guide">
       <div className="help-guide-header">
-        <h2>📖 How to Use MaggiePM</h2>
+        <h2>📖 How to Use the Dashboard</h2>
         <p className="help-guide-subtitle">
           Everything you need to manage properties, leases, contacts, and more.
           Click any section to expand.
@@ -303,7 +303,7 @@ export function HelpGuide() {
       </div>
       <div className="help-guide-footer">
         <p>
-          Still stuck? Send a message to the MaggiePM Agent in this Telegram chat
+          Still stuck? Send a message to your admin team in this Telegram chat
           — try "How do I add a new lease?" or "Show me my tasks."
         </p>
       </div>

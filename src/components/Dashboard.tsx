@@ -126,7 +126,7 @@ export function Dashboard(_props: { onViewProperty?: (id: string) => void }) {
     <div>
       <div className="page-header">
         <h1>Overview Dashboard</h1>
-        <p>MH Group — Property Management Portfolio</p>
+        <p>TH Group — Property Management Portfolio</p>
       </div>
 
       {/* Stats */}

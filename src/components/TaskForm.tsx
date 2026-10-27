@@ -175,10 +175,9 @@ export function TaskForm({ properties, tenants, task, onSaved, onCancel }: TaskF
           set('assigned_to', e.target.value)
         }}>
           <option value="">— Unassigned —</option>
-          <option value="Maggie">Maggie</option>
-          <option value="James">James</option>
-          <option value="Jenna">Jenna</option>
-          <option value="Winnie">Winnie</option>
+          <option value="Jeff">Jeff</option>
+          <option value="Arielle">Arielle</option>
+          <option value="Unassigned">Unassigned</option>
         </select>
       </div>
 

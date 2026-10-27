@@ -115,9 +115,9 @@ export function FinancialReports() {
   function exportPdf() {
     const periodLabel = monthRangeMode ? rangeLabel : formatMonth(selectedMonth)
     const title = selectedProperty !== 'all'
-      ? `MH Group — Property Statement | ${properties.find(p => p.id === selectedProperty)?.address} ${properties.find(p => p.id === selectedProperty)?.unit_number || ''} | ${periodLabel}`
-      : `MH Group — Property Statement | All Properties | ${periodLabel}`
-    const subtitle = 'Prepared by: Maggie Huang Group Property Management'
+      ? `PM Dashboard — Property Statement | ${properties.find(p => p.id === selectedProperty)?.address} ${properties.find(p => p.id === selectedProperty)?.unit_number || ''} | ${periodLabel}`
+      : `PM Dashboard — Property Statement | All Properties | ${periodLabel}`
+    const subtitle = 'Prepared by: PM Dashboard'
 
     const rowsHtml = filtered.map(r => {
       const mgmt = Number(r.mgmt_fee_expense)
@@ -171,19 +171,19 @@ export function FinancialReports() {
   <div class="subtitle">${subtitle} | Generated ${new Date().toLocaleDateString()}</div>
   <div class="summary">
     <div class="summary-box"><div class="label">Gross Rental Income</div><div class="value" style="color:#7a9a5a">$${totals.income.toLocaleString()}</div></div>
-    <div class="summary-box"><div class="label">MHG Management Fee</div><div class="value" style="color:#b8975a">$${totals.mgmt.toLocaleString()}</div></div>
+    <div class="summary-box"><div class="label">Mgmt Fee</div><div class="value" style="color:#b8975a">$${totals.mgmt.toLocaleString()}</div></div>
     <div class="summary-box"><div class="label">Net to Owner</div><div class="value" style="color:${netToOwner >= 0 ? '#7a9a5a' : '#c0392b'}">$${netToOwner.toLocaleString()}</div></div>
   </div>
   <table>
     <thead><tr>
-      <th>Property</th><th>Month</th><th style="text-align:right">Gross Rent</th><th style="text-align:right;color:#b8975a">MHG Mgmt Fee</th>
+      <th>Property</th><th>Month</th><th style="text-align:right">Gross Rent</th><th style="text-align:right;color:#b8975a">Mgmt Fee</th>
       <th style="text-align:right">Maint</th><th style="text-align:right">Taxes</th><th style="text-align:right">Insur</th>
       <th style="text-align:right">CC</th><th style="text-align:right">Util</th><th style="text-align:right">Other</th>
       <th style="text-align:right">Net to Owner</th>
     </tr></thead>
     <tbody>${rowsHtml}${totalsRow}</tbody>
   </table>
-  <div class="footer">Prepared by MH Group Property Management — Confidential</div>
+  <div class="footer">Prepared by PM Dashboard — Confidential</div>
 </body></html>`
 
     const win = window.open('', '_blank')
@@ -204,7 +204,7 @@ export function FinancialReports() {
   function expenseEntries(r: PnLRow) {
     const entries: { label: string; amount: number }[] = []
     const cats: [string, string][] = [
-      ['mgmt_fee_expense', 'MHG Management Fee'],
+      ['mgmt_fee_expense', 'Mgmt Fee'],
       ['maintenance_cost', 'Maintenance'],
       ['tax_expense', 'Real Estate Tax'],
       ['insurance_cost', 'Insurance'],
@@ -326,7 +326,7 @@ export function FinancialReports() {
         </div>
         <div className="card">
           <div className="card-body" style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: 11, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 8 }}>MHG Management Fee</div>
+            <div style={{ fontSize: 11, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 8 }}>Mgmt Fee</div>
             <div style={{ fontSize: 28, fontWeight: 700, color: 'var(--accent)' }}>${totals.mgmt.toLocaleString()}</div>
           </div>
         </div>
@@ -417,7 +417,7 @@ export function FinancialReports() {
                           </div>
                           <div style={{ paddingLeft: 12, display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 14 }}>
                             {items.map(it => (
-                              <div key={it.label} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, color: it.label === 'MHG Management Fee' ? 'var(--accent)' : 'var(--text-secondary)', fontWeight: it.label === 'MHG Management Fee' ? 600 : 400 }}>
+                              <div key={it.label} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, color: it.label === 'Mgmt Fee' ? 'var(--accent)' : 'var(--text-secondary)', fontWeight: it.label === 'Mgmt Fee' ? 600 : 400 }}>
                                 <span style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                                   <div style={{ width: 4, height: 4, borderRadius: '50%', background: 'currentColor' }} />
                                   {it.label}
@@ -535,7 +535,7 @@ export function FinancialReports() {
               <label style={{ fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px', color: 'var(--text-muted)', display: 'block', marginBottom: 4 }}>Category *</label>
               <select required value={expenseForm.category} onChange={e => setExpenseForm(f => ({ ...f, category: e.target.value }))} style={{ width: '100%', padding: '8px 12px', borderRadius: 6, border: '1px solid var(--border)', background: 'var(--bg-primary)', color: 'var(--text-primary)', fontSize: 13 }}>
                 <option value="common_charges">Building Fees (Common Charges)</option>
-                <option value="mgmt_fee">MHG Management Fee</option>
+                <option value="mgmt_fee">Mgmt Fee</option>
                 <option value="maintenance">Maintenance & Repairs</option>
                 <option value="taxes">Real Estate Taxes</option>
                 <option value="insurance">Insurance</option>

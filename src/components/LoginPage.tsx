@@ -58,9 +58,9 @@ export function LoginPage() {
           <div className="login-header">
             <div className="login-logo">
               <Building2 size={28} />
-              <span>MH Group</span>
-            </div>
-            <h1>Reset Password</h1>
+              <span>PM Dashboard</span>
+              </div>
+              <h1>Reset Password</h1>
             <p>Enter your email to receive a reset link</p>
           </div>
 
@@ -119,7 +119,7 @@ export function LoginPage() {
         <div className="login-header">
           <div className="login-logo">
             <Building2 size={28} />
-            <span>MH Group</span>
+            <span>PM Dashboard</span>
           </div>
           <h1>Property Management</h1>
           <p>Sign in to your account</p>

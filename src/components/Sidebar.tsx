@@ -27,7 +27,7 @@ export function Sidebar({ activeView, onNavigate }: SidebarProps) {
     <>
       <aside className="sidebar">
         <div className="sidebar-logo">
-          <span>MH Group</span>
+          <span>PM Dashboard</span>
         </div>
         <nav className="sidebar-nav">
           {navItems.map(item => (
